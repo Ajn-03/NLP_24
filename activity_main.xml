@@ -1,52 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:background="#D9C6BD"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/logonew" />
 
-    <Button
-        android:id="@+id/createAccountButton"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/logoImage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#A78978"
-        android:text="Create Account"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+    <View
+        android:id="@+id/topSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/contentContainer"/>
 
-    <Button
-        android:id="@+id/signInButton"
-        android:layout_width="250dp"
+    <RelativeLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/createAccountButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#A78978"
-        android:text="Sign In"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/skipText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signInButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="SKIP"
-        android:textColor="#A78978"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <!-- Your content here -->
+
+        <ScrollView
+            android:layout_above="@id/optionsLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <EditText
+                    android:id="@+id/sourceLanguageEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_english"
+                    android:minHeight="100dp"
+                    android:gravity="start"
+                    android:textSize="18sp"/>
+
+
+                <TextView
+                    android:id="@+id/destinationLanguageTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/optionsLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_above="@id/translateBtn">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sourceLanguageChooseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/english"
+                app:cornerRadius="10dp"
+                android:backgroundTint="#A78978"
+                android:textColor="#FFFFFF"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_arrow_forward_24"
+                android:contentDescription="Translating the sentence"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/destinationLanguageChooseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/urdu"
+                android:backgroundTint="#A78978"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/translateBtn"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/baseline_translate_24"
+            android:text="@string/translate"
+            android:backgroundTint="#A78978"
+            android:textColor="#FFFFFF"/>
+
+    </RelativeLayout>
+
+    <!-- Transparent view to push the content to the bottom of the screen -->
+    <View
+        android:id="@+id/bottomSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/contentContainer"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>
