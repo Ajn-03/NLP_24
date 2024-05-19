@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9C6BD"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/emailPrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter your email address"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp" />
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailPrompt"
+        android:layout_marginTop="16dp"
+        android:inputType="textEmailAddress"
+        android:hint="Email Address" />
+
+    <Button
+        android:id="@+id/sendOtpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailInput"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#A78978"
+        android:textColor="#FFFFFF"
+        android:text="Send OTP" />
+</RelativeLayout>
